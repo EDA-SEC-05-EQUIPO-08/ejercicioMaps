@@ -62,7 +62,7 @@ def loadBooks (catalog, sep=','):
     booksfile = cf.data_dir + 'GoodReads/books.csv'
     dialect = csv.excel()
     dialect.delimiter=sep
-    with open(booksfile, encoding="utf-8") as csvfile:
+    with open(booksfile, encoding="utf-8-sig") as csvfile:
         spamreader = csv.DictReader(csvfile, dialect=dialect)
         for row in spamreader: 
             # Se adiciona el libro a la lista de libros
