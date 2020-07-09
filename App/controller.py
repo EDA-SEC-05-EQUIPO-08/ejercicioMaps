@@ -38,6 +38,13 @@ El controlador se encarga de mediar entre la vista y el modelo.
 # Funcionaes utilitarias
 
 def printList (lst):
+    """
+    Funcion que imprime una lista que se pasa por parametro
+    Args:
+        lst:: list
+            Lista que se desea iterar e imprimir
+    Return :: None
+    """
     iterator = it.newIterator(lst)
     while  it.hasNext(iterator):
         element = it.next(iterator)
@@ -47,6 +54,16 @@ def printList (lst):
 
 
 def compareratings (movie1, movie2):
+    """
+    Funcion que compara dos peliculas el rating
+    Args:
+        movie1::
+            Primera película a comparar
+        movie 2::
+            Seguna Pelicula a comparar
+    Return :: Boolean
+        verdadero si la primera tienen mejor rating, falso si la segunda tiene mayor rating
+    """
     return ( float(movie1['vote_average']) > float(movie2['vote_average']))
 
 
@@ -57,6 +74,12 @@ def loadBooks (catalog, sep=','):
     Carga los libros del archivo.  Por cada libro se toman sus autores y por 
     cada uno de ellos, se crea en la lista de autores, a dicho autor y una
     referencia al libro que se esta procesando.
+    Args:
+        catalog::
+            Catalogo donde se añadiran los libros
+        sep = ','
+            separdor usado en la carga de los elementos
+    Return:: None
     """
     t1_start = process_time() #tiempo inicial
     booksfile = cf.data_dir + 'GoodReads/books.csv'
@@ -83,6 +106,10 @@ def loadBooks (catalog, sep=','):
 def initCatalog ():
     """
     Llama la funcion de inicializacion del catalogo del modelo.
+    Args:
+        None
+    Return
+        Catalogo vacio para manejar los libros
     """
     catalog = model.newCatalog()
     return catalog
@@ -93,6 +120,11 @@ def loadData (catalog):
     """
     Carga los datos de los archivos y cargar los datos en la
     estructura de datos
+    Args:
+        catalog
+            catalogo en el cual se cargaran los datos del archivo ccsv
+    return 
+        None
     """
     loadBooks(catalog)
     
@@ -101,6 +133,16 @@ def loadData (catalog):
 
 
 def getBookInfo(catalog, bookTitle):
+    """
+    Funcion que encuentra un elemento con cierto titulo dentro de un arreglo (catalogo)
+    Args:
+        catalog
+            Catalogo donde se encuentra la informaciom
+        bookTitle:: str
+            nombre del libro que se desea encontrar
+    Return
+        el libro buscado si existe está en la lista, None si no
+    """
     t1_start = process_time() #tiempo inicial
     book=model.getBookInList(catalog, bookTitle)
     #book=model.getBookInMap(catalog, bookTitle)
@@ -112,6 +154,16 @@ def getBookInfo(catalog, bookTitle):
         return None   
 
 def getAuthorInfo(catalog, authorName):
+    """
+    Metodo que busca en el catalogo a un autor con un nombre dado
+    Args:
+        catalog
+            Catalogo donde se encuentra la informaciom
+        authorName:: str
+            nombre del libro que se desea encontrar
+    Return
+        el autor buscado si existe está en la lista, None si no
+    """
     author=model.getAuthorInfo(catalog, authorName)
     if author:
         return author

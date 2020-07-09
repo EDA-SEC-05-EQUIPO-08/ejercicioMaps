@@ -47,14 +47,20 @@ def newCatalog():
 
 def newBook (row):
     """
-    Crea una nueva estructura para almacenar los actores de una pelicula 
+    Crea una nueva estructura para almacenar los libros de un catalogo
     """
     book = {"book_id": row['book_id'], "title":row['title'], "average_rating":row['average_rating'], "ratings_count":row['ratings_count']}
     return book
 
 def addBookList (catalog, row):
     """
-    Adiciona libro a la lista
+    Adiciona libro a la lista con key = title
+    Args:
+        catalog
+            Catalogo donde se encuentran los libros
+        row
+            argumento creado para la creacion del libro
+    Return::None
     """
     books = catalog['booksList']
     book = newBook(row)
@@ -63,6 +69,12 @@ def addBookList (catalog, row):
 def addBookMap (catalog, row):
     """
     Adiciona libro al map con key=title
+    Args:
+        catalog
+            Catalogo donde se encuentran los libros
+        row
+            argumento creado para la creacion del libro
+    Return::None
     """
     books = catalog['booksMap']
     book = newBook(row)
@@ -123,7 +135,25 @@ def getAuthorInfo (catalog, authorName):
 # Funciones de comparacion
 
 def compareByKey (key, element):
+    """
+    Funcion para compara dos elementos por la llave establecida
+    Args:
+        key
+            Llave establecida para la comparacion
+        element
+            elemento con el cual se desea comparar
+    Return True en caso de ser iguales, False de lo contratio
+    """
     return  (key == element['key'] )  
 
 def compareByTitle(bookTitle, element):
+    """
+    Funcion para compara dos libros por la el titulo
+    Args:
+        bookTitle
+            titulo que será comparado
+        element
+            elemento con el cual se desea comparar
+    Return True en caso de ser iguales, False de lo contratio
+    """
     return  (bookTitle == element['title'] )
