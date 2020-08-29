@@ -22,11 +22,11 @@
 import config as cf
 import model
 import csv
-from ADT import list as lt
-from ADT import map as map
+from DISClib.ADT import list as lt
+from DISClib.ADT import map as map
 
-from DataStructures import listiterator as it
-from Sorting import mergesort as sort
+from DISClib.DataStructures import listiterator as it
+from DISClib.Algorithms.Sorting import mergesort as sort
 from time import process_time 
 
 

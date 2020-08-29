@@ -21,9 +21,9 @@
 
 
 import config as cf
-from ADT import list as lt
-from ADT import map as map
-from DataStructures import listiterator as it
+from DISClib.ADT import list as lt
+from DISClib.ADT import map as map
+from DISClib.DataStructures import listiterator as it
 
 
 """
@@ -39,9 +39,9 @@ def newCatalog():
     Inicializa el catálogo de peliculas. Retorna el catalogo inicializado.
     """
     catalog = {'booksList':None, 'authors':None, 'booksMap': None}
-    catalog['booksList'] = lt.newList("ARRAY_LIST")
-    catalog['booksMap'] = map.newMap (5003, maptype='CHAINING')#10000 books
-    catalog['authors'] = map.newMap (12007, maptype='PROBING') #5841 authors
+    catalog['booksList'] = lt.newList("ARRAY_LIST", cmpfunction=compareByTitle)
+    catalog['booksMap'] = map.newMap (5003, maptype='CHAINING', comparefunction=compareByKey)#10000 books
+    catalog['authors'] = map.newMap (12007, maptype='PROBING', comparefunction=compareByKey) #5841 authors
     return catalog
 
 
@@ -78,7 +78,7 @@ def addBookMap (catalog, row):
     """
     books = catalog['booksMap']
     book = newBook(row)
-    map.put(books, book['title'], book, compareByKey)
+    map.put(books, book['title'], book)
 
 def newAuthor (name, row):
     """
@@ -97,14 +97,13 @@ def addAuthor (catalog, name, row):
     """
     if name:
         authors = catalog['authors']
-        author=map.get(authors,name,compareByKey)
+        author=map.get(authors,name)
         if author:
-            lt.addLast(author['authorBooks'],row['book_id'])
-            author['sum_average_rating'] += float(row['average_rating'])
+            lt.addLast(author['value']['authorBooks'],row['book_id'])
+            author['value']['sum_average_rating'] += float(row['average_rating'])
         else:
             author = newAuthor(name, row)
-            map.put(authors, author['name'], author, compareByKey)
-
+            map.put(authors, author['name'], author)
 
 # Funciones de consulta
 
@@ -113,7 +112,7 @@ def getBookInList (catalog, bookTitle):
     """
     Retorna el libro desde la lista a partir del titulo
     """
-    pos = lt.isPresent(catalog['booksList'], bookTitle, compareByTitle)
+    pos = lt.isPresent(catalog['booksList'], bookTitle)
     if pos:
         return lt.getElement(catalog['booksList'],pos)
     return None
@@ -123,14 +122,14 @@ def getBookInMap (catalog, bookTitle):
     """
     Retorna el libro desde el mapa a partir del titulo (key)
     """
-    return map.get(catalog['booksMap'], bookTitle, compareByKey)
+    return map.get(catalog['booksMap'], bookTitle)
 
 
 def getAuthorInfo (catalog, authorName):
     """
     Retorna el autor a partir del nombre
     """
-    return map.get(catalog['authors'], authorName, compareByKey)
+    return map.get(catalog['authors'], authorName)
 
 # Funciones de comparacion
 

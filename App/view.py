@@ -23,10 +23,10 @@ import config as cf
 import sys
 import controller 
 import csv
-from ADT import list as lt
-from ADT import map as map
+from DISClib.ADT import list as lt
+from DISClib.ADT import map as map
 
-from DataStructures import listiterator as it
+from DISClib.DataStructures import listiterator as it
 
 """
 La vista se encarga de la interacción con el usuario
@@ -85,8 +85,8 @@ while True:
         authorName = input("Nombre del autor a buscar: ")
         author = controller.getAuthorInfo (catalog, authorName)
         if author:
-            print("Libros del autor",authorName,":",lt.size(author['authorBooks']))
-            print("Promedio  e Votación: ",authorName,(author['sum_average_rating']/lt.size(author['authorBooks'])))
+            print("Libros del autor",authorName,":",lt.size(author['value']['authorBooks']))
+            print("Promedio  e Votación: ",authorName,(author['value']['sum_average_rating']/lt.size(author['authorBooks'])))
         else:
             print("Autor No encontrado")    
 
