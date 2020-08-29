@@ -1,8 +1,8 @@
-#ISIS1225 - Librerias de soporte
+# ISIS1225 - Librerias de soporte
 
 Este proyecto contiene los Tipos abstractos de datos, estructuras de datos y algoritmos requeridos por el curso ISIS1225-Estructuras de Datos y Algoritmos
 
--Lib
+-DISClib
 Este directorio contiene todo el código de base que se entrega para el funcionamiento del curso.  Dentro de este directorio encuentran:
     
     |-- ADT:  Directorio con los Tipos Abstractos de Datos del curso
@@ -15,4 +15,12 @@ Este directorio contiene todo el código de base que se entrega para el funciona
 
 -Test
 Este directorio contiene las pruebas realizadas a los TADs, Estructuras de Datos y Algoritmos.
+
+-Data
+Este directorio contiene todos los archivos de informacion para el laboratorio.
+
+-App
+Este directorio contiene la aplicacion del laboratorio.
+    -Para ejecturar el programa se debe utilizar el comando: python App/view.py
+
 
