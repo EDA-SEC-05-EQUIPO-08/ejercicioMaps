@@ -1,17 +1,18 @@
-# Lab3_202010
+#ISIS1225 - Librerias de soporte
 
-Este repositorio contiene una plantilla del laboratorio 3 con un ejemplo de implementación de una aplicación en el esquema Modelo-Vista-Controlador que carga datos y realiza consultas usando las estructuras de datos implementadas. Para ejecutar la aplicación debe ejecutar: 
-```
-python App/view.py
-```
-*	ADT: archivos Python con la definición de los Tipos Abstractos de Datos.
-*	App: aplicación Python cliente que usa las ADTs y ordenamientos para dar solución a laboratorios y retos.
-    * view.py: Es el punto de entrada de la aplicación, y se encarga de la entrada y salida de datos, e interacción con el usuario
-    * controller.py: Comunica la vista con el modelo a través de las operaciones invocadas por el usuario desde la vista
-    * model.py: Representa el modelo del mundo.
-*	Data: archivos con los datos (csv, json, txt, etc) usados en el laboratorio o reto. El contenido de esta carpeta NO se debe versionar.
-*	DataStructures: archivos Python con las estructuras de datos básicas (listas enlazadas y arreglos).
-*	Sorting: archivos Python que implementan los algoritmos de ordenamiento.
-*	Test: pruebas unitarias en Python para validar el código desarrollado.
+Este proyecto contiene los Tipos abstractos de datos, estructuras de datos y algoritmos requeridos por el curso ISIS1225-Estructuras de Datos y Algoritmos
 
-![Modelo-Vista-Controlador](http://sistemasproyectos.uniandes.edu.co/iniciativas/architlab/wp-content/uploads/sites/7/2020/02/MVC.png)
+-Lib
+Este directorio contiene todo el código de base que se entrega para el funcionamiento del curso.  Dentro de este directorio encuentran:
+    
+    |-- ADT:  Directorio con los Tipos Abstractos de Datos del curso
+
+    |--DataStructures: Directorio con todas las estructuras de datos y archivos auxiliares para su     correcto funcionamiento
+
+    |--Algorithms: Implementación de los algoritmos vistos en el curso (por ejemplo algoritmos de ordenamiento)
+
+    |-- Utils: Funciones auxiliares para el funcionamiento de los TADs y estructuras de datos
+
+-Test
+Este directorio contiene las pruebas realizadas a los TADs, Estructuras de Datos y Algoritmos.
+

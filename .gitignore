@@ -14,7 +14,6 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
 lib64/
 parts/
 sdist/
@@ -109,6 +108,10 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+<<<<<<< HEAD
+=======
+.vscode/
+>>>>>>> a0688619d949e2ead1272899e44148e53d0f146b
 
 # Spyder project settings
 .spyderproject
@@ -131,8 +134,18 @@ dmypy.json
 
 #Mac file system
 .DS_Store
+<<<<<<< HEAD
 .vscode
 
 #Data
 *.csv
 !Data/GoodReads/books.csv
+=======
+
+
+#Python Cache
+#Data
+*.csv
+!Data/GoodReads/books.csv
+!Data/GoodReads/book_reviews.csv
+>>>>>>> a0688619d949e2ead1272899e44148e53d0f146b
