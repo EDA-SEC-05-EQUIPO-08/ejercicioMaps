@@ -86,7 +86,7 @@ while True:
         author = controller.getAuthorInfo (catalog, authorName)
         if author:
             print("Libros del autor",authorName,":",lt.size(author['value']['authorBooks']))
-            print("Promedio  e Votación: ",authorName,(author['value']['sum_average_rating']/lt.size(author['authorBooks'])))
+            print("Promedio  e Votación: ",authorName,(author['value']['sum_average_rating']/lt.size(author['value']['authorBooks'])))
         else:
             print("Autor No encontrado")    
 
