@@ -21,6 +21,8 @@ Este directorio contiene todos los archivos de informacion para el laboratorio.
 
 -App
 Este directorio contiene la aplicacion del laboratorio.
-    -Para ejecturar el programa se debe utilizar el comando: python App/view.py
+<ul>
+    <li>Para ejecturar el programa se debe utilizar el comando: python App/view.py</li>
+</ul>
 
 
