@@ -33,7 +33,7 @@ def newIterator(lst):
     Returns:
         Un iterador para la lista
     """
-    iterator = {'iterable_lst': lst, 'current_node': None,
+    iterator = {'iterable_lst': lst, 'current_node': lst["first"],
                 'type': 'LINKED_ITERATOR'}
     return iterator
 
@@ -48,20 +48,8 @@ def hasNext(iterator):
     Returns:
         True si existe un siguiente elemento, False de lo contrario
     """
-    head = iterator['iterable_lst']['first']
-    current = iterator['current_node']
-    hasnxt = False
 
-    if (head is None):
-        hasnxt = False
-    elif (head is not None) and current is None:
-        hasnxt = True
-    elif current['next'] is None:
-        hasnxt = False
-    elif current['next'] is not None:
-        hasnxt = True
-
-    return hasnxt
+    return iterator["current_node"] != None
 
 
 def next(iterator):
@@ -72,12 +60,7 @@ def next(iterator):
     Returns:
         El siguiente elemento al último retornado por el iterador
     """
-    head = iterator['iterable_lst']['first']
-    current = iterator['current_node']
+    n = iterator["current_node"]["info"]
+    iterator["current_node"] = iterator["current_node"]["next"]
 
-    if (head is not None) and (current is None):
-        current = head
-    elif current['next'] is not None:
-        current = current['next']
-
-    return current['info']
+    return n
